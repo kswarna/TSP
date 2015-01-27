@@ -1,5 +1,6 @@
  var App = angular.module('travelApp')
-.controller('oneCtrl', function($scope, $timeout) {
+.controller('oneCtrl', ['$scope','CityFactory', 
+function($scope,CityFactory,$timeout) {
   $scope.AvailableCities = [
     { 'Name': 'Item 1', 'drag': true },
     { 'Name': 'Item 2', 'drag': true },
@@ -23,4 +24,4 @@
       // }
     // }
   // };
- });
+ }]);
