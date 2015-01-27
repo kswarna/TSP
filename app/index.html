@@ -16,40 +16,63 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/popup.css">
     <!-- endbuild -->
   </head>
   <body ng-app="travelApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+		  
     <!-- Add your site or application content here -->
-    <div class="container">
-      <!--<div class="header">
-        <ul class="nav nav-pills pull-right">
+	      <div class="header">
+
+        <span><ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
           <li><a ng-href="#/about">About</a></li>
           <li><a ng-href="#/select">Select</a></li>
         </ul>
-      <h3 class="text-muted">travel</h3>
-      </div>-->
+		</span> 
+<a  ng-href="#">      <img  src="images/icon.png">	  </a>
+	  Travelling Salesman Problem Demo
 
-      <div ng-view=""></div>
+      </div>
+    <div class="container">
 
+<!-- <div class = "header">Travelling Salesman Problem Demo</div>
+ -->      <div class="cont" ng-view=""></div>
+
+	  
+	  <div class="footer">
+    <div class="row">
+        <div class="col-sm-17">
+            <div id="div_footer_links" class="footer-div-style">
+				  <div class="vcard">
+					<span class="fn">Karthik Swarna</span>
+					<span class="footer-separator">|</span>
+					<span hidden class="given-name">Karthik</span>
+					<span hidden class="family-name">Swarna</span>
+					<a class="url" href=https://www.linkedin.com/profile/view?id=39098794&trk=nav_responsive_tab_profile>LinkedIn</a>
+					<span class="footer-separator">|</span>
+					<a class="email" href="mailto:kswarna@live.com">kswarna@live.com</a>
+					<span class="footer-separator">|</span>
+					<span class="tel">+1.408.505.8006</span>
+					<span class="footer-separator">|</span>
+					<div hidden class="adr">
+					<div class="street-address">2132 Avalon Dr</div>
+					<span class="locality">Wilmington</span>,
+					<abbr class="region" title="Massachusetts">MA</abbr>
+					<span class="postal-code">01887</span>
+					<div class="country-name">U.S.A</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+	  
+	  
+	  
       <div class="footer">
-	  <div class="vcard">
-<span class="fn">Karthik Swarna</span>,
-<span hidden class="given-name">Karthik</span>
-<span hidden class="family-name">Swarna</span>
-<a class="url" href=https://www.linkedin.com/profile/view?id=39098794&trk=nav_responsive_tab_profile>LinkedIn</a>,
-<a class="email" href="mailto:kswarna@live.com">kswarna@live.com</a>,
-<span class="tel">+1.408.505.8006</span>
-<div hidden class="adr">
-<div class="street-address">2132 Avalon Dr</div>
-<span class="locality">Wilmington</span>,
-<abbr class="region" title="Massachusetts">MA</abbr>,
-<span class="postal-code">01887</span>
-<div class="country-name">U.S.A</div></div>
+
     </div>
 
 

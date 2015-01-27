@@ -1,6 +1,7 @@
  var App = angular.module('travelApp')
 .controller('oneCtrl', ['$scope','CityFactory', 
 function($scope,CityFactory,$timeout) {
+
   $scope.AvailableCities = [
     { 'Name': 'Item 1', 'drag': true },
     { 'Name': 'Item 2', 'drag': true },
@@ -13,15 +14,20 @@ function($scope,CityFactory,$timeout) {
 ];
   $scope.selectedCities = [];
   
-
-  // // Limit items to be dropped in unselectedCities
-  // $scope.optionsunselectedCities = {
-    // accept: function(dragEl) {
-      // if ($scope.unselectedCities.length >= 2) {
-        // return false;
-      // } else {
-        // return true;
-      // }
-    // }
-  // };
+$scope.AddAvailableCity = function()
+{
+	CityFactory.verify().then(
+	function()
+	{
+		alert(CityFactory.geo());
+	});
+	$scope.div_hide();
+};
+$scope.div_show =function()  {
+document.getElementById('abc').style.display = "block";
+}
+//Function to Hide Popup
+$scope.div_hide = function(){
+document.getElementById('abc').style.display = "none";
+}
  }]);

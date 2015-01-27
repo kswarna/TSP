@@ -11,7 +11,20 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
-
+.cont{
+min-height: 100%;
+}
+.footer
+{
+position:relative;
+bottom:0px;
+}
+.header{
+background: #3D663D url(../asdsa/images/cropped-header2.jpg) no-repeat;
+position: relative;
+height: 50px;
+font-size: 200%;
+}
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -34,7 +47,7 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 930px;
   }
 }
 .container-narrow > hr {

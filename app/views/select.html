@@ -18,6 +18,19 @@
 			</div>
 		  </li>
 		</ul>
+		<div id="abc">
+<!-- Popup Div Starts Here -->
+<div id="popupContact">
+<img id="close" src="images/3.png" ng-Click ="div_hide()">
+<h2>Add City</h2>
+<hr>
+<input ng-model = 'NewCityName' placeholder="City Name" type="text">
+<input ng-model = 'NewStateCode' placeholder="State Code" type="text">
+<button ng-click="AddAvailableCity(NewCityName,NewStateCode)" id="submit">Send</button>
+</div>
+<!-- Popup Div Ends Here -->
+</div>
+<img id="add" src="images/GreenPlus.ico" ng-Click ="div_show()" />
 	  </div>
 	</div>
   </div>
