@@ -6,13 +6,21 @@
   padding-right: 15px;
 }
 
-.header{
+.max-header,
+.med-header,
+.min-header{
 background: #3D663D;
-position: relative;
-height: 50px;
-font-size: 200%;
 }
 
+.Title
+{
+text-align: center ;
+font-size: 200%;
+}
+.dropdown-menu ul {
+    position:relative;
+    float:left;
+}
 .cont{
 background-color:#bbFFbb;
 }
@@ -36,7 +44,9 @@ background-color:#bbFFbb;
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-  background-color: #ffffff
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 0px;
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -56,6 +66,26 @@ background-color:#bbFFbb;
 .marketing p + h4 {
   margin-top: 28px;
 }
+@media only screen and (max-width: 900px) {
+    .max-header {
+        display: none;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .med-header {
+        display: none;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .med-header {
+        display: none;
+    }
+}
+@media only screen and (min-width: 720px) {
+    .min-header {
+        display: none;
+    }
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -69,5 +99,6 @@ background-color:#bbFFbb;
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+	margin-bottom: 0px;
   }
 }
