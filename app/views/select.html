@@ -1,38 +1,43 @@
 <div ng-controller="oneCtrl">
+<div style="width: 60%; margin: 0px auto;">
   <div class='contentWrapper ng-cloak'>
-	<div class='content'>
+	<div class='content marketing'>
 	  <div class="row-fluid">
 		<ul class="thumbnails">
-		  <li class="content-table" style='margin-left:10px;'>
+		  <li class="content-table">
+		  Available Cities:
 			<div class="thumbnail" data-drop="true" ng-model='AvailableCities' data-jqyoui-options="optionsAvailableCities" jqyoui-droppable="{multiple:true}">
 			  <div class="caption">
-				<div class="btn btn-info btn-draggable" ng-repeat="item in AvailableCities" ng-show="item.Name" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="AvailableCities" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.Name}}</div>
+				<div class="btn btn-success btn-draggable" ng-repeat="item in AvailableCities" ng-show="item.Name" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="AvailableCities" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.Name}}</div>
 			  </div>
 			</div>
+		  <p><a class="btn btn-success" ng-Click ="div_show()" alt="Add City">Add City</a></p>
 		  </li>
-		  <li class="content-table" style='margin-left:10px;'>
+		</ul>
+		<ul class="thumbnails">
+		  <li class="content-table">
+		  Selected Cities
 			<div class="thumbnail" data-drop="true" ng-model='selectedCities' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=selectedCities])'}"  jqyoui-droppable="{multiple:true}">
 			  <div class="caption">
-				<div class="btn btn-info btn-draggable" ng-repeat="item in selectedCities" ng-show="item.Name" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="selectedCities" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.Name}}</div>
+				<div class="btn btn-warning btn-draggable" ng-repeat="item in selectedCities" ng-show="item.Name" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="selectedCities" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.Name}}</div>
 			  </div>
 			</div>
+			<p><a class="btn btn-warning" ng-Href ="#/result" alt="GO TSP">Go!</a></p>
 		  </li>
 		</ul>
 		<div id="abc">
-<!-- Popup Div Starts Here -->
-<div id="popupContact">
-<img id="close" src="images/3.png" ng-Click ="div_hide()">
-<h2>Add City</h2>
-<hr>
-<input ng-model = 'NewCityName' placeholder="City Name" type="text">
-<input ng-model = 'NewStateCode' placeholder="State Code" type="text">
-<button ng-click="AddAvailableCity(NewCityName,NewStateCode)" id="submit">Send</button>
-</div>
-<!-- Popup Div Ends Here -->
-</div>
-<img id="add" style="height:auto; width:auto; max-width:30px; max-height:30px;"
- src="images/GreenPlus.ico" ng-Click ="div_show()" alt="Add City" />
+			<!-- Popup Div Starts Here -->
+			<div id="popupContact">
+				<img id="close" src="images/3.png" ng-Click ="div_hide()">
+				<h2>Add City</h2>
+				<hr>
+				<input ng-model = 'Location' placeholder="ex San Diego, CA" type="text">
+				<button ng-click="AddAvailableCity(Location)" id="submit">Add</button>
+			</div>
+			<!-- Popup Div Ends Here -->
+		</div>
 	  </div>
 	</div>
   </div>
+</div>
 </div>

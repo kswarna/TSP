@@ -1,21 +1,32 @@
 angular.module('travelApp')
 .service('CityFactory',function($http)
 {
-	var Name = '' ;
-	var State = '' ;
-	var lng = '';
 	var lat = '';
-	this.init = function(CityName,CityState)
-	{
-		Name = Name;
-		State = State;
+	var lng = '';
+	var name = '';
+	var AvailableCities = [
+		{ 'Name': 'Boston,MA','Lat':42.36,'Lng':-71.05, 'drag': true },
+		{ 'Name': 'NYC,NY','Lat':40.71,'Lng':-74.00, 'drag': true },
+		{ 'Name': 'Washingtona, DC','Lat':38.90,'Lng':-77.11, 'drag': true }
+	];
+		
+	var SelectedCities = [];
+	
+	this.GetAvailableCities = function(){
+      return AvailableCities;
 	}
 	
-	this.verify = function()
+	this.GetSelectedCities = function(){
+      return SelectedCities;
+	}
+		// SelectedCities.push(City);
+	// };	
+	
+	this.AddAvailableCity = function(Location)
 	{
 		var request = $http({
                         method: "get",
-                        url: "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCkAEn9XmY0pGGK0Sa3o5BHBjAveuyY6Jo",
+                        url: "https://maps.googleapis.com/maps/api/geocode/json?address="+Location+"&key=AIzaSyCkAEn9XmY0pGGK0Sa3o5BHBjAveuyY6Jo",
                         params: {
                             action: "get"
                         }
@@ -25,43 +36,25 @@ angular.module('travelApp')
 		
 	}
 	
-	this.calculateDistance = function(AnotherCity)
+	this.calculateDistance = function(City1,City2)
 	{
 		return "OK";
 	}
 	
-	this.geo = function()
-	{
-		return lng;
-	}
 	function handleError( response ) {
-
-		// The API response from the server should be returned in a
-		// nomralized format. However, if the request was not handled by the
-		// server (or what not handles properly - ex. server error), then we
-		// may have to normalize it on our end, as best we can.
 		if (
 			! angular.isObject( response.data ) ||
 			! response.data.message
 			) {
-
 			return( $q.reject( "An unknown error occurred." ) );
-
 		}
-
-		// Otherwise, use expected error message.
 		return( $q.reject( response.data.message ) );
-
 	}
 
-
-	// I transform the successful response, unwrapping the application data
-	// from the API response payload.
 	function handleSuccess( response ) {
-
 	lat = response.data.results[0].geometry.location.lat;
 	lng = response.data.results[0].geometry.location.lng;
-		return( "Success");
-
+	AvailableCities.push({ 'Name': name,'Lat':42.36,'Lng':-71.05, 'drag': true });
+		return('Success');
 	}
 });

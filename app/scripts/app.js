@@ -32,6 +32,10 @@ angular
         templateUrl: 'views/select.html',
         controller: 'oneCtrl'
       })
+	  .when('/result', {
+        templateUrl: 'views/result.html',
+        controller: 'resultCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

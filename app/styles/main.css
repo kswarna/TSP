@@ -17,12 +17,15 @@ background: #3D663D;
 text-align: center ;
 font-size: 200%;
 }
+
 .dropdown-menu ul {
     position:relative;
     float:left;
 }
+
 .cont{
 background-color:#bbFFbb;
+min-height : 580px;
 }
 
 /* Custom page footer */
@@ -54,15 +57,16 @@ background-color:#bbFFbb;
 }
 
 .content-table{
-	border: 1px solid #000000;
-	max-width: 3000pX;
-	min-width: 500px;
+	max-width: 300pX;
+	min-width: 300px;
 }
 
 /* Supporting marketing content */
 .marketing {
-  margin: 40px 0;
+  margin-left: 28px;
+    margin-top: 28px;
 }
+
 .marketing p + h4 {
   margin-top: 28px;
 }
