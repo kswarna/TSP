@@ -1,19 +1,13 @@
  var App = angular.module('travelApp')
 .controller('oneCtrl', ['$scope','CityFactory', 
 function($scope,CityFactory,$timeout) {
-
   $scope.AvailableCities = CityFactory.GetAvailableCities();
   $scope.selectedCities = CityFactory.GetSelectedCities();
  
 // Function to add City to Availability List 
 $scope.AddAvailableCity = function(Location)
 {
-    //Testing Webstorms ability to commit
-	CityFactory.AddAvailableCity(Location).then(
-	function(response)
-	{
-		alert(response);
-	});
+	CityFactory.AddAvailableCity(Location);
 	$scope.div_hide();
 };
 

@@ -2,3 +2,5 @@
 2) Drop down menu goes on the right
 3) Click on City to transfer (for mobile devices only)
 4) Check list before adding new location
+5) Add refresh button in select.
+6) If Name is too long, shortern and alt description full name
