@@ -1,6 +1,6 @@
-var App = angular.module('travelApp')
+angular.module('travelApp')
 .controller('resultCtrl', ['$scope','TsParent',
-function($scope,TsParent,$timeout) {
+function($scope,TsParent) {
 
     $scope.CityLinks = TsParent.GetCityLink();
  }]);

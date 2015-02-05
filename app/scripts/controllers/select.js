@@ -1,6 +1,6 @@
- var App = angular.module('travelApp')
+angular.module('travelApp')
 .controller('oneCtrl', ['$scope','CityFactory', 
-function($scope,CityFactory,$timeout) {
+function($scope,CityFactory) {
   $scope.AvailableCities = CityFactory.GetAvailableCities();
   $scope.selectedCities = CityFactory.GetSelectedCities();
  

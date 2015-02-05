@@ -6,6 +6,19 @@
   padding-right: 15px;
 }
 
+#map-canvas {
+    height: 100%;
+    width: 50%;
+}
+#content-pane {
+    float:right;
+    width:48%;
+    padding-left: 2%;
+}
+#outputDiv {
+    font-size: 11px;
+}
+
 .max-header,
 .med-header,
 .min-header{

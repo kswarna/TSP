@@ -27,7 +27,8 @@ angular.module('travelApp')
 
 	this.AddAvailableCity = function(Location) {
         name = Location;
-        var VerifyUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="+Location+"&key=AIzaSyCkAEn9XmY0pGGK0Sa3o5BHBjAveuyY6Jo";
+        var VerifyUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
+                            +Location+"&key=AIzaSyCkAEn9XmY0pGGK0Sa3o5BHBjAveuyY6Jo";
 		var request = $http({
                         method: "get",
                         url: VerifyUrl,

@@ -4,3 +4,5 @@
 4) Check list before adding new location
 5) Add refresh button in select.
 6) If Name is too long, shortern and alt description full name
+7) CAnnot 'go' with less than three object selected.
+8) Refresh add city
