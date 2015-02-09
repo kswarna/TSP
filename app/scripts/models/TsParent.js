@@ -4,7 +4,7 @@
 angular.module('travelApp')
     .service('TsParent',function($http,CityFactory) {
 
-        var CityLink = [];
+        var CityLink = [{orig:'asdsd',dest:'asd',dist:'asd'},{orig:'asd',dest:'asd',dist:'asd'},{orig:'asd',dest:'asd',dist:'asd'}];
         var city = [];
         var rest = [];
         var map;
@@ -12,36 +12,27 @@ angular.module('travelApp')
         var bounds = new google.maps.LatLngBounds();
         var markersArray = [];
         var selected = [];
-        var origin1 = new google.maps.LatLng(55.930, -3.118);
-        var origin2 = 'Greenwich, England';
-        var destinationA = 'Stockholm, Sweden';
-        var destinationB = new google.maps.LatLng(50.087, 14.421);
+        var backColor = 'FF0000';
+        var fontColor = '000000';
 
         var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
         var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FFFF00|000000';
         this.GetCityLink = function()
         {
+            return CityLink;
+        };
+        this.calculateResult = function() {
+
             initialize();
             var sel =CityFactory.GetSelectedCities();
-
-            for (var j = 0; j < sel.length; j++) {
+            for (var j = 0; j < sel.length; j++)
+            {
                 selected.push(sel[j].Name);
             }
             city = [];
             city.push(selected.pop());
             CalculateCityLink();
-            return CityLink;
-        };
-        CalculateCityLink = function()
-        {
-            var destCities = selected.slice(0);
-            var len = destCities.length;
-            for (j = 0; j < len; j++) {
-                rest.push(destCities.pop())
-            }
-            calculateDistances(city,rest);
-        };
-
+        }
         function initialize() {
             var opts = {
                 center: new google.maps.LatLng(55.53, 9.4),
@@ -49,23 +40,26 @@ angular.module('travelApp')
             };
             map = new google.maps.Map(document.getElementById('map-canvas'), opts);
             geocoder = new google.maps.Geocoder();
-            var outputDiv = document.getElementById('outputDiv');
-            outputDiv.innerHTML = '';
             deleteOverlays();
             selected = [];
+            CityLink = [];
+            var outputDiv = document.getElementById('outputDiv');
+            outputDiv.innerHTML = "";
         }
-        function calculateDistances(origin ,destinations) {
+
+        CalculateCityLink = function()
+        {
             var service = new google.maps.DistanceMatrixService();
             service.getDistanceMatrix(
                 {
-                    origins: origin,
-                    destinations: destinations,
+                    origins: city,
+                    destinations: selected,
                     travelMode: google.maps.TravelMode.DRIVING,
                     unitSystem: google.maps.UnitSystem.METRIC,
                     avoidHighways: false,
                     avoidTolls: false
                 }, callback);
-        }
+        };
 
         function callback(response, status) {
             if (status != google.maps.DistanceMatrixStatus.OK) {
@@ -77,11 +71,9 @@ angular.module('travelApp')
 
                 for (var i = 0; i < origins.length; i++) {
                     var results = response.rows[i].elements;
-                    addMarker(origins[i], false);
                     var closestCity = '';
                     var smallestDistance = 0;
                     for (var j = 0; j < results.length; j++) {
-                        addMarker(destinations[j], true);
                         if (smallestDistance == 0)
                         {
                             smallestDistance = results[j].distance.value;
@@ -92,9 +84,15 @@ angular.module('travelApp')
                             closestCity = destinations[j];
                         }
                     }
-                    outputDiv.innerHTML += origins[i] + ' to ' + closestCity
-                    + ': ' + smallestDistance + '<br>';
-                    CityLink.push({orig:origins[i],dest:closestCity,dist:smallestDistance});
+                    var link = {'orig':origins[i],'dest':closestCity,'dist':smallestDistance};
+//                    var ind = CityLink.indexOf(link);
+                    if(!ContainsLink(link)) {
+                        CityLink.push(link);
+                        outputDiv.innerHTML += CityLink.length + ') ' + origins[i] + ' to ' + closestCity
+                        + ': ' + smallestDistance / 1600 + 'Miles.' + '<br>';
+                        addMarker(origins[i], CityLink.length);
+                        addMarker(closestCity, CityLink.length + 1);
+                    }
                     if (selected.length>1) {
                         city = [];
                         city.push(closestCity);
@@ -110,13 +108,22 @@ angular.module('travelApp')
             }
         }
 
-        function addMarker(location, isDestination) {
-            var icon;
-            if (isDestination) {
-                icon = destinationIcon;
-            } else {
-                icon = originIcon;
+        function ContainsLink (link)
+        {
+            for (var i = 0; i < CityLink.length; i++)
+            {
+                if(CityLink[i].dest == link.dest && CityLink[i].orig == link.orig)
+                {
+                    return true;
+                }
             }
+            return false;
+        }
+
+        function addMarker(location, num) {
+            var icon;
+            icon = CalcIconUrl(num);
+
             geocoder.geocode({'address': location}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     bounds.extend(results[0].geometry.location);
@@ -139,6 +146,11 @@ angular.module('travelApp')
                 markersArray[i].setMap(null);
             }
             markersArray = [];
+        }
+
+        function CalcIconUrl(num)
+        {
+            return 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld='+num+'|'+backColor+'|'+fontColor;
         }
 
     });

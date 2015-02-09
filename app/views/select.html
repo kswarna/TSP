@@ -1,7 +1,7 @@
 <div ng-controller="oneCtrl">
-<div style="width: 60%; margin: 0px auto;">
-  <div class='contentWrapper ng-cloak'>
-	<div class='content marketing'>
+    <div class ="BlankBar"></div>
+<div align="center">
+  <div class="resultron" >
 	  <div class="row-fluid">
 		<ul class="thumbnails">
 		  <li class="content-table">
@@ -22,7 +22,7 @@
 				<div class="btn btn-warning btn-draggable" ng-repeat="item in selectedCities" ng-show="item.Name" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="selectedCities" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.Name}}</div>
 			  </div>
 			</div>
-			<p><a class="btn btn-warning" ng-Href ="#/result" alt="GO TSP">Go!</a></p>
+			<p><a class="btn btn-warning"  ng-Href ="#/result" alt="GO TSP">Go!</a></p>
 		  </li>
 		</ul>
 		<div id="abc">
@@ -39,5 +39,4 @@
 	  </div>
 	</div>
   </div>
-</div>
 </div>

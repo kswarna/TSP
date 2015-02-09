@@ -7,16 +7,9 @@
 }
 
 #map-canvas {
-    height: 100%;
-    width: 50%;
-}
-#content-pane {
-    float:right;
-    width:48%;
-    padding-left: 2%;
-}
-#outputDiv {
-    font-size: 11px;
+    height: 201px;
+/*    height: 100%;*/
+    margin-top: 20px;
 }
 
 .max-header,
@@ -29,11 +22,6 @@ background: #3D663D;
 {
 text-align: center ;
 font-size: 200%;
-}
-
-.dropdown-menu ul {
-    position:relative;
-    float:left;
 }
 
 .cont{
@@ -56,6 +44,13 @@ min-height : 580px;
   margin: 30px 0;
 }
 
+ul.dropdown-menu
+{
+    right:0;
+    left: auto;
+    min-width: 80px;
+}
+
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -64,6 +59,21 @@ min-height : 580px;
   padding-top: 10px;
   padding-bottom: 0px;
 }
+.BlankBar
+{
+    height: 25px;
+}
+.resultron{
+    background-color: #F0E68C;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left;
+    font-family:'Raleway',sans-serif;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px #888888;
+}
+
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
